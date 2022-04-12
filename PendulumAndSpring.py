@@ -44,7 +44,7 @@ class Button:
 class Pendulum:
     def __init__(self, l, alpha, r) -> None:
         self.l = l
-        self.wychylenie_max = alpha
+        self.amplitude = alpha
         self.r = r
         self.direction = "r"
         self.T = 2*pi * math.sqrt(self.l/g)    
@@ -52,9 +52,9 @@ class Pendulum:
 
     def draw(self, t):
         omega = 2*pi/self.T
-        self.alpha = self.wychylenie_max * math.sin(omega * t)
-        v = self.wychylenie_max * omega * math.cos(omega * t)
-        a = pow(omega,2) * self.wychylenie_max * math.sin(omega * t)
+        self.alpha = self.amplitude * math.sin(omega * t)
+        v = self.amplitude * omega * math.cos(omega * t)
+        a = pow(omega,2) * self.amplitude * math.sin(omega * t)
 
         v_text = FONT.render(f"v (rad/s) = {round(v,2)}", True, (255,255,255))
         a_text = FONT.render(f"a = {round(a,2)}", True, (255,255,255))
